@@ -1,6 +1,6 @@
 {
   "private": true,
-  "author":"shougong <shougong@burgeon.cn>",
+  "author": "shougong <shougong@burgeon.cn>",
   "scripts": {
     "dev": "umi dev",
     "build": "umi build",
@@ -9,11 +9,25 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "umi": "^4.0.34"
+    "@prisma/client": "^4.7.1",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@upstash/redis": "^1.18.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "prisma": "^4.7.1",
+    "umi": "^4.0.34",
+    "umi-plugin-tailwindcss": "^4.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@umijs/plugins": "^4.0.34",
+    "tailwindcss": "^3",
     "typescript": "^4.1.2"
+  },
+  "engines": {
+    "node": "16.*",
+    "npm": "8.*"
   }
 }
