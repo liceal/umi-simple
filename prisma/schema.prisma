@@ -1,12 +1,10 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider             = "mysql"
-  referentialIntegrity = "prisma"
-  url                  = env("DATABASE_URL")
+  provider = "mysql"
+  url      = "mysql://root:675024132@localhost:3306/prisma_test_blog"
 }
 
 model Post {
@@ -15,12 +13,11 @@ model Post {
   updatedAt DateTime @updatedAt
   title     String   @db.VarChar(255)
   content   String?
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
+  // author    User     @relation(fields: [authorId], references: [id])
   imageUrl  String?
   tags      String
-
-  @@index(authorId)
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
 }
 
 model User {

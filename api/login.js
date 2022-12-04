@@ -35497,8 +35497,8 @@ var require_client2 = __commonJS2({
     var hasDirname = typeof __dirname !== "undefined" && __dirname !== "/";
     var regularDirname = hasDirname && fs.existsSync(path.join(__dirname, "schema.prisma")) && __dirname;
     var foundDirname = !regularDirname && findSync2(process.cwd(), [
-      "../node_modules/.pnpm/@prisma+client@4.7.1_prisma@4.7.1/node_modules/.prisma/client",
-      "node_modules/.pnpm/@prisma+client@4.7.1_prisma@4.7.1/node_modules/.prisma/client"
+      "node_modules/.pnpm/@prisma+client@4.7.1_prisma@4.7.1/node_modules/.prisma/client",
+      ".pnpm/@prisma+client@4.7.1_prisma@4.7.1/node_modules/.prisma/client"
     ], ["d"], ["d"], 1)[0];
     var dirname2 = regularDirname || foundDirname || __dirname;
     function makeEnum(x) {
@@ -35510,9 +35510,9 @@ var require_client2 = __commonJS2({
       updatedAt: "updatedAt",
       title: "title",
       content: "content",
-      authorId: "authorId",
       imageUrl: "imageUrl",
-      tags: "tags"
+      tags: "tags",
+      userId: "userId"
     });
     exports2.Prisma.SortOrder = makeEnum({
       asc: "asc",
@@ -35535,7 +35535,7 @@ var require_client2 = __commonJS2({
       Post: "Post",
       User: "User"
     });
-    var dmmfString = '{"datamodel":{"enums":[],"models":[{"name":"Post","dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"Int","default":{"name":"autoincrement","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"createdAt","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"DateTime","default":{"name":"now","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"updatedAt","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"DateTime","isGenerated":false,"isUpdatedAt":true},{"name":"title","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"content","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"author","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"User","relationName":"PostToUser","relationFromFields":["authorId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"authorId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"Int","isGenerated":false,"isUpdatedAt":false},{"name":"imageUrl","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"tags","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},{"name":"User","dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"Int","default":{"name":"autoincrement","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"email","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"passwordHash","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"name","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"posts","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Post","relationName":"PostToUser","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"avatarUrl","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false}],"types":[]},"mappings":{"modelOperations":[{"model":"Post","plural":"posts","findUnique":"findUniquePost","findUniqueOrThrow":"findUniquePostOrThrow","findFirst":"findFirstPost","findFirstOrThrow":"findFirstPostOrThrow","findMany":"findManyPost","create":"createOnePost","createMany":"createManyPost","delete":"deleteOnePost","update":"updateOnePost","deleteMany":"deleteManyPost","updateMany":"updateManyPost","upsert":"upsertOnePost","aggregate":"aggregatePost","groupBy":"groupByPost"},{"model":"User","plural":"users","findUnique":"findUniqueUser","findUniqueOrThrow":"findUniqueUserOrThrow","findFirst":"findFirstUser","findFirstOrThrow":"findFirstUserOrThrow","findMany":"findManyUser","create":"createOneUser","createMany":"createManyUser","delete":"deleteOneUser","update":"updateOneUser","deleteMany":"deleteManyUser","updateMany":"updateManyUser","upsert":"upsertOneUser","aggregate":"aggregateUser","groupBy":"groupByUser"}],"otherOperations":{"read":[],"write":["executeRaw","queryRaw"]}}}';
+    var dmmfString = '{"datamodel":{"enums":[],"models":[{"name":"Post","dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"Int","default":{"name":"autoincrement","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"createdAt","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"DateTime","default":{"name":"now","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"updatedAt","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"DateTime","isGenerated":false,"isUpdatedAt":true},{"name":"title","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"content","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"imageUrl","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"tags","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"User","kind":"object","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"User","relationName":"PostToUser","relationFromFields":["userId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"userId","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"Int","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},{"name":"User","dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"Int","default":{"name":"autoincrement","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"email","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"passwordHash","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"name","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"posts","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Post","relationName":"PostToUser","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"avatarUrl","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false}],"types":[]},"mappings":{"modelOperations":[{"model":"Post","plural":"posts","findUnique":"findUniquePost","findUniqueOrThrow":"findUniquePostOrThrow","findFirst":"findFirstPost","findFirstOrThrow":"findFirstPostOrThrow","findMany":"findManyPost","create":"createOnePost","createMany":"createManyPost","delete":"deleteOnePost","update":"updateOnePost","deleteMany":"deleteManyPost","updateMany":"updateManyPost","upsert":"upsertOnePost","aggregate":"aggregatePost","groupBy":"groupByPost"},{"model":"User","plural":"users","findUnique":"findUniqueUser","findUniqueOrThrow":"findUniqueUserOrThrow","findFirst":"findFirstUser","findFirstOrThrow":"findFirstUserOrThrow","findMany":"findManyUser","create":"createOneUser","createMany":"createManyUser","delete":"deleteOneUser","update":"updateOneUser","deleteMany":"deleteManyUser","updateMany":"updateManyUser","upsert":"upsertOneUser","aggregate":"aggregateUser","groupBy":"groupByUser"}],"otherOperations":{"read":[],"write":["executeRaw","queryRaw"]}}}';
     var dmmf = JSON.parse(dmmfString);
     exports2.Prisma.dmmf = JSON.parse(dmmfString);
     var config2 = {
@@ -35553,12 +35553,11 @@ var require_client2 = __commonJS2({
           "engineType": "library"
         },
         "binaryTargets": [],
-        "previewFeatures": [
-          "referentialIntegrity"
-        ]
+        "previewFeatures": []
       },
       "relativeEnvPaths": {
-        "rootEnvPath": "../../../../../../.env"
+        "rootEnvPath": "../../../../../../.env",
+        "schemaEnvPath": "../../../../../../.env"
       },
       "relativePath": "../../../../../../prisma",
       "clientVersion": "4.7.1",
@@ -35580,9 +35579,9 @@ var require_client2 = __commonJS2({
     exports2.PrismaClient = PrismaClient2;
     Object.assign(exports2, Prisma);
     path.join(__dirname, "libquery_engine-darwin.dylib.node");
-    path.join(process.cwd(), "../node_modules/.pnpm/@prisma+client@4.7.1_prisma@4.7.1/node_modules/.prisma/client/libquery_engine-darwin.dylib.node");
+    path.join(process.cwd(), "node_modules/.pnpm/@prisma+client@4.7.1_prisma@4.7.1/node_modules/.prisma/client/libquery_engine-darwin.dylib.node");
     path.join(__dirname, "schema.prisma");
-    path.join(process.cwd(), "../node_modules/.pnpm/@prisma+client@4.7.1_prisma@4.7.1/node_modules/.prisma/client/schema.prisma");
+    path.join(process.cwd(), "node_modules/.pnpm/@prisma+client@4.7.1_prisma@4.7.1/node_modules/.prisma/client/schema.prisma");
   }
 });
 
@@ -40628,7 +40627,40 @@ async function login_default(req, res) {
 
 // src/.umi/api/login.ts
 var import_apiRoute = __toESM2(require_apiRoute());
-var apiRoutes = [{ "path": "posts/[postId]", "id": "posts/[postId]", "file": "posts/[postId].ts", "absPath": "/posts/[postId]", "__content": `import type { UmiApiRequest, UmiApiResponse } from "umi"
+var apiRoutes = [{ "path": "test/posts", "id": "test/posts/index", "file": "test/posts/index.ts", "absPath": "/test/posts", "__content": `import { UmiApiRequest, UmiApiResponse } from "umi";
+import { PrismaClient } from '@prisma/client'
+
+export default async function (req: UmiApiRequest, res: UmiApiResponse) {
+  let prisma: PrismaClient;
+  switch (req.method) {
+    case "GET":
+      prisma = new PrismaClient();
+
+      const postAll = await prisma.post.findMany()
+
+      res.status(200).json(postAll);
+
+      await prisma.$disconnect()
+      break;
+    case "POST":
+      prisma = new PrismaClient();
+
+      const newPost = await prisma.post.create({
+        data: {
+          title: req.body.title,
+          content: req.body.content,
+          createdAt: new Date(),
+          tags: req.body.tags.join(','),
+        }
+      })
+      res.status(200).json(newPost)
+      await prisma.$disconnect()
+      break;
+    default:
+      res.status(405).json({ message: '\u65B9\u6CD5\u8FD8\u672A\u5199' })
+  }
+
+}` }, { "path": "test/posts/[id]", "id": "test/posts/[id]", "file": "test/posts/[id].ts", "absPath": "/test/posts/[id]", "__content": "" }, { "path": "posts/[postId]", "id": "posts/[postId]", "file": "posts/[postId].ts", "absPath": "/posts/[postId]", "__content": `import type { UmiApiRequest, UmiApiResponse } from "umi"
 
 export default async function (req: UmiApiRequest, res: UmiApiResponse) {
   res.status(400).json({

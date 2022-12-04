@@ -385,7 +385,40 @@ async function api_default(req, res) {
 
 // src/.umi/api/index.ts
 var import_apiRoute = __toESM(require_apiRoute());
-var apiRoutes = [{ "path": "posts/[postId]", "id": "posts/[postId]", "file": "posts/[postId].ts", "absPath": "/posts/[postId]", "__content": `import type { UmiApiRequest, UmiApiResponse } from "umi"
+var apiRoutes = [{ "path": "test/posts", "id": "test/posts/index", "file": "test/posts/index.ts", "absPath": "/test/posts", "__content": `import { UmiApiRequest, UmiApiResponse } from "umi";
+import { PrismaClient } from '@prisma/client'
+
+export default async function (req: UmiApiRequest, res: UmiApiResponse) {
+  let prisma: PrismaClient;
+  switch (req.method) {
+    case "GET":
+      prisma = new PrismaClient();
+
+      const postAll = await prisma.post.findMany()
+
+      res.status(200).json(postAll);
+
+      await prisma.$disconnect()
+      break;
+    case "POST":
+      prisma = new PrismaClient();
+
+      const newPost = await prisma.post.create({
+        data: {
+          title: req.body.title,
+          content: req.body.content,
+          createdAt: new Date(),
+          tags: req.body.tags.join(','),
+        }
+      })
+      res.status(200).json(newPost)
+      await prisma.$disconnect()
+      break;
+    default:
+      res.status(405).json({ message: '\u65B9\u6CD5\u8FD8\u672A\u5199' })
+  }
+
+}` }, { "path": "test/posts/[id]", "id": "test/posts/[id]", "file": "test/posts/[id].ts", "absPath": "/test/posts/[id]", "__content": "" }, { "path": "posts/[postId]", "id": "posts/[postId]", "file": "posts/[postId].ts", "absPath": "/posts/[postId]", "__content": `import type { UmiApiRequest, UmiApiResponse } from "umi"
 
 export default async function (req: UmiApiRequest, res: UmiApiResponse) {
   res.status(400).json({
